@@ -8,6 +8,8 @@ github.com/drgolem/go-mpg123 v0.0.0-20260208074744-7cdb197372ca h1:BqiWYP4oafJ9T
 github.com/drgolem/go-mpg123 v0.0.0-20260208074744-7cdb197372ca/go.mod h1:lTMlKJyyCJBmvv5HlGsnCFUJl8h0ois6/5b78asZ0G4=
 github.com/drgolem/go-portaudio v0.0.0-20260208081006-6a320e0f32fc h1:kctPBQlP2tpMw3cjFW1AypIxlh+iQ3FdX1PHjrezjVo=
 github.com/drgolem/go-portaudio v0.0.0-20260208081006-6a320e0f32fc/go.mod h1:7lSBh31+9+nZHrFEtIGHXlshCySRDvkh2KEBaLBBbWQ=
+github.com/drgolem/go-portaudio v0.0.0-20260208083100-dcbd5b316799 h1:yLJr8P0xKq7RA8wd8Jg6ByYIXm1U0/9UPUk0PNyozoA=
+github.com/drgolem/go-portaudio v0.0.0-20260208083100-dcbd5b316799/go.mod h1:7lSBh31+9+nZHrFEtIGHXlshCySRDvkh2KEBaLBBbWQ=
 github.com/google/go-cmp v0.5.6 h1:BKbKCqvP6I+rmFHt06ZmyQtvB8xAkWdhFyr0ZUNZcxQ=
 github.com/google/go-cmp v0.5.6/go.mod h1:v8dTdLbMG2kIc/vJvl+f65V22dbkXbowE6jgT/gNBxE=
 github.com/inconshreveable/mousetrap v1.1.0 h1:wN+x4NVGpMsO7ErUn/mUI3vEoE6Jt13X2s0bqwp9tc8=
