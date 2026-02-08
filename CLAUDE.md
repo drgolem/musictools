@@ -1,4 +1,4 @@
-# Claude Code Guidelines for learnRingbuffer
+# Claude Code Guidelines for musictools
 
 **Project**: Lock-free audio ringbuffer library with real-time playback capabilities
 **Language**: Go 1.25.2
@@ -74,7 +74,7 @@ Core implementations belong in pkg/ (public API) or internal/ (private to projec
 1. **Always use decoder factory for creating decoders**
    ```go
    // ✅ CORRECT - single source of truth
-   import "learnRingbuffer/pkg/decoders"
+   import "musictools/pkg/decoders"
    decoder, err := decoders.NewDecoder(fileName)
 
    // ❌ WRONG - duplicating format detection logic
@@ -87,7 +87,7 @@ Core implementations belong in pkg/ (public API) or internal/ (private to projec
 2. **Always use pkg/types for shared interfaces**
    ```go
    // ✅ CORRECT
-   import "learnRingbuffer/pkg/types"
+   import "musictools/pkg/types"
    var decoder types.AudioDecoder
 
    // ❌ WRONG - don't define interfaces in implementation packages
@@ -97,7 +97,7 @@ Core implementations belong in pkg/ (public API) or internal/ (private to projec
 3. **Use internal/fileplayer for production audio playback**
    ```go
    // ✅ CORRECT - production-ready with 9.5/10 safety
-   import "learnRingbuffer/internal/fileplayer"
+   import "musictools/internal/fileplayer"
    player := fileplayer.NewFilePlayer(deviceIdx, capacity, frames, samples)
 
    // ❌ WRONG - don't reimplement FilePlayer in cmd/
@@ -196,7 +196,7 @@ Core implementations belong in pkg/ (public API) or internal/ (private to projec
 
 ### Building
 ```bash
-go build                    # Main binary (learnRingbuffer)
+go build                    # Main binary (musictools)
 go build ./...              # All packages
 go build -o bin/name ./path # Specific example
 ```
@@ -210,9 +210,9 @@ go vet ./...                # Static analysis
 
 ### Running
 ```bash
-./learnRingbuffer playlist file1.mp3 file2.flac   # Play playlist
-./learnRingbuffer player file.mp3                 # Simple player
-./learnRingbuffer transform input.mp3 --new-samplerate 48000 --out output.wav
+./musictools playlist file1.mp3 file2.flac   # Play playlist
+./musictools player file.mp3                 # Simple player
+./musictools transform input.mp3 --new-samplerate 48000 --out output.wav
 ```
 
 ---
@@ -333,7 +333,7 @@ replace github.com/drgolem/go-portaudio => /Users/val.gridnev/Projects/.../go-po
 ## File Organization
 
 ### Never Commit
-- Binaries: `learnRingbuffer`, `play`, `decode`, etc.
+- Binaries: `musictools`, `play`, `decode`, etc.
 - Build artifacts: `*.test`, `*.out`
 - IDE files: `.vscode/`, `.idea/` (if not in .gitignore)
 
@@ -414,7 +414,7 @@ go test -race ./...  # Always run before commit
 ## Common Issues & Solutions
 
 ### Issue: "undefined: types.AudioDecoder"
-**Solution**: Import `learnRingbuffer/pkg/types`, not `learnRingbuffer/pkg/audioplayer`
+**Solution**: Import `musictools/pkg/types`, not `musictools/pkg/audioplayer`
 
 ### Issue: Data corruption in ringbuffer
 **Solution**: Use deep copy for slice data, not shallow copy

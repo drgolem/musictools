@@ -41,7 +41,7 @@ Producer Goroutine ──writes──> AudioFrameRingBuffer ──reads──> A
 
 ```go
 import (
-    "learnRingbuffer/internal/fileplayer"
+    "musictools/internal/fileplayer"
     "github.com/drgolem/go-portaudio/portaudio"
 )
 
@@ -379,4 +379,4 @@ If you need a reusable audio player library, consider:
 
 ## License
 
-Part of the learnRingbuffer project - a learning project for audio application development.
+Part of the musictools project - a learning project for audio application development.

@@ -8,8 +8,8 @@ import (
 	"os"
 	"strings"
 
-	"learnRingbuffer/pkg/decoders"
-	"learnRingbuffer/pkg/types"
+	"musictools/pkg/decoders"
+	"musictools/pkg/types"
 
 	"github.com/spf13/cobra"
 	wav "github.com/youpy/go-wav"
@@ -24,13 +24,13 @@ Supports input from MP3, FLAC, and WAV formats with optional mono conversion.
 
 Examples:
   # Transform MP3 to 48kHz WAV
-  learnRingbuffer transform input.mp3 --new-samplerate 48000 --out output.wav
+  musictools transform input.mp3 --new-samplerate 48000 --out output.wav
 
   # Transform FLAC to 44.1kHz mono WAV
-  learnRingbuffer transform input.flac --new-samplerate 44100 --mono --out output.wav
+  musictools transform input.flac --new-samplerate 44100 --mono --out output.wav
 
   # Transform WAV with default settings (48kHz)
-  learnRingbuffer transform input.wav
+  musictools transform input.wav
 
 Supported Input Formats:
   - MP3 (.mp3)

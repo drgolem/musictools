@@ -78,7 +78,7 @@ go build -o play main.go
 package main
 
 import (
-    "learnRingbuffer/pkg/audioplayer"
+    "musictools/pkg/audioplayer"
     "github.com/drgolem/go-portaudio/portaudio"
 )
 

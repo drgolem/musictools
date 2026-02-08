@@ -33,8 +33,8 @@ package main
 
 import (
     "fmt"
-    "learnRingbuffer/pkg/audioframe"
-    "learnRingbuffer/pkg/audioframeringbuffer"
+    "musictools/pkg/audioframe"
+    "musictools/pkg/audioframeringbuffer"
 )
 
 func main() {
@@ -90,8 +90,8 @@ func main() {
 ```go
 import (
     "sync"
-    "learnRingbuffer/pkg/audioframe"
-    "learnRingbuffer/pkg/audioframeringbuffer"
+    "musictools/pkg/audioframe"
+    "musictools/pkg/audioframeringbuffer"
 )
 
 func producerConsumerExample() {

@@ -9,7 +9,7 @@ import (
 	"syscall"
 	"time"
 
-	"learnRingbuffer/pkg/audioplayer"
+	"musictools/pkg/audioplayer"
 
 	"github.com/drgolem/go-portaudio/portaudio"
 )

@@ -8,8 +8,8 @@ import (
 	"syscall"
 	"time"
 
-	"learnRingbuffer/internal/fileplayer"
-	"learnRingbuffer/pkg/types"
+	"musictools/internal/fileplayer"
+	"musictools/pkg/types"
 
 	"github.com/drgolem/go-portaudio/portaudio"
 	"github.com/spf13/cobra"
@@ -36,16 +36,16 @@ frame-based audio streaming with the SPSC (Single-Producer Single-Consumer) patt
 
 Examples:
   # Play multiple files
-  learnRingbuffer playlist song1.mp3 song2.flac song3.wav
+  musictools playlist song1.mp3 song2.flac song3.wav
 
   # Play all MP3 files in current directory
-  learnRingbuffer playlist *.mp3
+  musictools playlist *.mp3
 
   # Use specific device with verbose output
-  learnRingbuffer playlist -d 0 -v music/*.flac
+  musictools playlist -d 0 -v music/*.flac
 
   # Adjust buffer parameters
-  learnRingbuffer playlist -c 512 -s 2048 *.wav
+  musictools playlist -c 512 -s 2048 *.wav
 
 Supported Formats:
   MP3:  .mp3 (16-bit lossy)

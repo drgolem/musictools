@@ -4,7 +4,7 @@ import (
 	"sync"
 	"testing"
 
-	"learnRingbuffer/pkg/audioframe"
+	"musictools/pkg/audioframe"
 )
 
 func TestNewRoundsToPowerOf2(t *testing.T) {

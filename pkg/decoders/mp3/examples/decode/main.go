@@ -8,7 +8,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"learnRingbuffer/pkg/decoders/mp3"
+	"musictools/pkg/decoders/mp3"
 )
 
 // AudioMetadata contains format information for the decoded audio

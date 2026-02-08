@@ -8,9 +8,9 @@ import (
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
-	Use:   "learnRingbuffer",
+	Use:   "musictools",
 	Short: "Lock-free SPSC ringbuffer audio player",
-	Long: `learnRingbuffer - A production-ready audio player demonstrating lock-free
+	Long: `musictools - A production-ready audio player demonstrating lock-free
 SPSC (Single-Producer Single-Consumer) ringbuffer implementation for real-time
 audio streaming.
 

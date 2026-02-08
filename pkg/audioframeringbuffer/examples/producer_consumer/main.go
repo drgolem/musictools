@@ -5,8 +5,8 @@ import (
 	"sync"
 	"time"
 
-	"learnRingbuffer/pkg/audioframe"
-	"learnRingbuffer/pkg/audioframeringbuffer"
+	"musictools/pkg/audioframe"
+	"musictools/pkg/audioframeringbuffer"
 )
 
 func main() {

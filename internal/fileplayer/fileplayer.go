@@ -8,10 +8,10 @@ import (
 	"sync/atomic"
 	"time"
 
-	"learnRingbuffer/pkg/audioframe"
-	"learnRingbuffer/pkg/audioframeringbuffer"
-	"learnRingbuffer/pkg/decoders"
-	"learnRingbuffer/pkg/types"
+	"musictools/pkg/audioframe"
+	"musictools/pkg/audioframeringbuffer"
+	"musictools/pkg/decoders"
+	"musictools/pkg/types"
 
 	"github.com/drgolem/go-portaudio/portaudio"
 )
@@ -163,7 +163,7 @@ func (fp *FilePlayer) initializeStream() error {
 
 	// Create stream
 	fp.stream = &portaudio.PaStream{
-		OutputParameters: portaudio.PaStreamParameters{
+		OutputParameters: &portaudio.PaStreamParameters{
 			DeviceIndex:  fp.deviceIndex,
 			ChannelCount: fp.channels,
 			SampleFormat: sampleFormat,

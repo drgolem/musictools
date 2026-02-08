@@ -2,7 +2,7 @@ package ringbuffer_test
 
 import (
 	"fmt"
-	"learnRingbuffer/pkg/ringbuffer"
+	"musictools/pkg/ringbuffer"
 	"sync"
 	"time"
 )

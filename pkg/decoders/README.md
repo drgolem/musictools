@@ -29,7 +29,7 @@ This allows you to write format-agnostic code that works with any supported audi
 **Always use the decoder factory** for automatic format detection based on file extension:
 
 ```go
-import "learnRingbuffer/pkg/decoders"
+import "musictools/pkg/decoders"
 
 // Factory automatically detects format and creates the right decoder
 decoder, err := decoders.NewDecoder("music.mp3")
@@ -56,7 +56,7 @@ rate, channels, bitsPerSample := decoder.GetFormat()
 For advanced use cases, you can create decoders directly:
 
 ```go
-import "learnRingbuffer/pkg/decoders/mp3"  // or flac, wav
+import "musictools/pkg/decoders/mp3"  // or flac, wav
 
 // Create decoder directly
 decoder := mp3.NewDecoder()
@@ -106,8 +106,8 @@ All decoders work seamlessly with the lock-free ringbuffer for real-time audio s
 
 ```go
 import (
-    "learnRingbuffer/pkg/decoders"
-    "learnRingbuffer/pkg/ringbuffer"
+    "musictools/pkg/decoders"
+    "musictools/pkg/ringbuffer"
     "time"
 )
 

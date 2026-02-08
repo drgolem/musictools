@@ -2,10 +2,12 @@ github.com/cpuguy83/go-md2man/v2 v2.0.6/go.mod h1:oOW0eioCTA6cOiMLiUPZOpcVxMig6N
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
-github.com/drgolem/go-mpg123 v0.0.0-20240611091502-c7d0d87d2db7 h1:lFRw6tSfhViSihpudtzrWN1PPWbLKz3qAiUCAGHuxlQ=
-github.com/drgolem/go-mpg123 v0.0.0-20240611091502-c7d0d87d2db7/go.mod h1:lTMlKJyyCJBmvv5HlGsnCFUJl8h0ois6/5b78asZ0G4=
-github.com/drgolem/ringbuffer v0.0.0-20260206083538-2042166cd2a8 h1:J66xrKj5XmLI2EqF8ezb/5bUKAQ2+7PEcjNY2UpJ1Kc=
-github.com/drgolem/ringbuffer v0.0.0-20260206083538-2042166cd2a8/go.mod h1:Xn0Po7/iyHRbuoeJ8GFYKIAiCGyy/+uSMIwnTjOvznA=
+github.com/drgolem/go-flac v0.0.0-20260208081436-4c94904585b6 h1:5iXzAqreYmJTzZjx6WDx2qlLaHuZNa0ExwNZTrgOvBs=
+github.com/drgolem/go-flac v0.0.0-20260208081436-4c94904585b6/go.mod h1:TZFPIrpHSgzrWPWajhPgsnb/ggP0TMlKPcr0mHxxNgw=
+github.com/drgolem/go-mpg123 v0.0.0-20260208074744-7cdb197372ca h1:BqiWYP4oafJ9TsBEvnuH7P18rgwY2PUnMEhT0DZuvb4=
+github.com/drgolem/go-mpg123 v0.0.0-20260208074744-7cdb197372ca/go.mod h1:lTMlKJyyCJBmvv5HlGsnCFUJl8h0ois6/5b78asZ0G4=
+github.com/drgolem/go-portaudio v0.0.0-20260208081006-6a320e0f32fc h1:kctPBQlP2tpMw3cjFW1AypIxlh+iQ3FdX1PHjrezjVo=
+github.com/drgolem/go-portaudio v0.0.0-20260208081006-6a320e0f32fc/go.mod h1:7lSBh31+9+nZHrFEtIGHXlshCySRDvkh2KEBaLBBbWQ=
 github.com/google/go-cmp v0.5.6 h1:BKbKCqvP6I+rmFHt06ZmyQtvB8xAkWdhFyr0ZUNZcxQ=
 github.com/google/go-cmp v0.5.6/go.mod h1:v8dTdLbMG2kIc/vJvl+f65V22dbkXbowE6jgT/gNBxE=
 github.com/inconshreveable/mousetrap v1.1.0 h1:wN+x4NVGpMsO7ErUn/mUI3vEoE6Jt13X2s0bqwp9tc8=

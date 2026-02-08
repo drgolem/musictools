@@ -5,10 +5,10 @@ import (
 	"path/filepath"
 	"strings"
 
-	"learnRingbuffer/pkg/decoders/flac"
-	"learnRingbuffer/pkg/decoders/mp3"
-	"learnRingbuffer/pkg/decoders/wav"
-	"learnRingbuffer/pkg/types"
+	"musictools/pkg/decoders/flac"
+	"musictools/pkg/decoders/mp3"
+	"musictools/pkg/decoders/wav"
+	"musictools/pkg/types"
 )
 
 // NewDecoder creates and opens the appropriate decoder based on file extension.

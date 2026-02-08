@@ -3,8 +3,8 @@ package audioframeringbuffer
 import (
 	"sync/atomic"
 
-	"learnRingbuffer/pkg/audioframe"
-	"learnRingbuffer/pkg/types"
+	"musictools/pkg/audioframe"
+	"musictools/pkg/types"
 )
 
 // Re-export common ringbuffer errors for backwards compatibility

@@ -8,11 +8,11 @@ import (
 	"sync/atomic"
 	"time"
 
-	"learnRingbuffer/pkg/decoders/flac"
-	"learnRingbuffer/pkg/decoders/mp3"
-	"learnRingbuffer/pkg/decoders/wav"
-	"learnRingbuffer/pkg/ringbuffer"
-	"learnRingbuffer/pkg/types"
+	"musictools/pkg/decoders/flac"
+	"musictools/pkg/decoders/mp3"
+	"musictools/pkg/decoders/wav"
+	"musictools/pkg/ringbuffer"
+	"musictools/pkg/types"
 
 	"github.com/drgolem/go-portaudio/portaudio"
 )

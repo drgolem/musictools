@@ -3,7 +3,7 @@ package ringbuffer
 import (
 	"sync/atomic"
 
-	"learnRingbuffer/pkg/types"
+	"musictools/pkg/types"
 )
 
 // Re-export common ringbuffer errors for backwards compatibility

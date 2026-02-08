@@ -58,7 +58,7 @@ package main
 
 import (
     "fmt"
-    "learnRingbuffer/pkg/audioframe"
+    "musictools/pkg/audioframe"
 )
 
 func main() {

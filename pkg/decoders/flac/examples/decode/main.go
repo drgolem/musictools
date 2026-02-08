@@ -8,7 +8,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"learnRingbuffer/pkg/decoders/flac"
+	"musictools/pkg/decoders/flac"
 )
 
 // AudioMetadata contains format information for the decoded audio

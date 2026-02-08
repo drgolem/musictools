@@ -19,7 +19,7 @@ go.work
 go.work.sum
 
 # Build artifacts
-/learnRingbuffer
+/musictools
 /out_transformed.wav
 
 # env file

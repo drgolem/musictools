@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	"learnRingbuffer/pkg/decoders/wav"
+	"musictools/pkg/decoders/wav"
 )
 
 func main() {

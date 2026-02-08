@@ -3,7 +3,7 @@ package flac
 import (
 	"fmt"
 
-	"github.com/drgolem/go-flac/flac"
+	"github.com/drgolem/go-flac/pkg/flac"
 )
 
 // Decoder wraps the go-flac decoder to provide FLAC decoding capabilities.

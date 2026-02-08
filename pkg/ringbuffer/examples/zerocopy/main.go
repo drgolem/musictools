@@ -7,7 +7,7 @@ import (
 	"sync"
 	"time"
 
-	"learnRingbuffer/pkg/ringbuffer"
+	"musictools/pkg/ringbuffer"
 )
 
 const (

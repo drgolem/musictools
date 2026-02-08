@@ -11,12 +11,12 @@ import (
 	"syscall"
 	"time"
 
-	"learnRingbuffer/pkg/audioframe"
-	"learnRingbuffer/pkg/audioframeringbuffer"
-	"learnRingbuffer/pkg/decoders/flac"
-	"learnRingbuffer/pkg/decoders/mp3"
-	"learnRingbuffer/pkg/decoders/wav"
-	"learnRingbuffer/pkg/types"
+	"musictools/pkg/audioframe"
+	"musictools/pkg/audioframeringbuffer"
+	"musictools/pkg/decoders/flac"
+	"musictools/pkg/decoders/mp3"
+	"musictools/pkg/decoders/wav"
+	"musictools/pkg/types"
 
 	"github.com/drgolem/go-portaudio/portaudio"
 )
@@ -137,7 +137,7 @@ func (fp *FramesPlayer) initializeStream() error {
 
 	// Create stream
 	fp.stream = &portaudio.PaStream{
-		OutputParameters: portaudio.PaStreamParameters{
+		OutputParameters: &portaudio.PaStreamParameters{
 			DeviceIndex:  fp.deviceIndex,
 			ChannelCount: fp.channels,
 			SampleFormat: sampleFormat,

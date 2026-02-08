@@ -1,4 +1,4 @@
-# learnRingbuffer - Production-Ready Audio Player & Lock-Free SPSC Ring Buffer
+# musictools - Production-Ready Audio Player & Lock-Free SPSC Ring Buffer
 
 A production-ready audio player demonstrating lock-free SPSC (Single-Producer Single-Consumer) ringbuffer implementation for real-time audio streaming. Supports MP3, FLAC, and WAV formats with comprehensive thread safety guarantees (9.5/10 rating).
 
@@ -15,16 +15,16 @@ Production-ready multi-file player with accurate playback tracking and robust th
 go build
 
 # Play single file
-./learnRingbuffer playlist music.mp3
+./musictools playlist music.mp3
 
 # Play multiple files sequentially
-./learnRingbuffer playlist song1.mp3 song2.flac song3.wav
+./musictools playlist song1.mp3 song2.flac song3.wav
 
 # Play all MP3 files
-./learnRingbuffer playlist *.mp3
+./musictools playlist *.mp3
 
 # Advanced usage
-./learnRingbuffer playlist -d 0 -v music/*.flac
+./musictools playlist -d 0 -v music/*.flac
 ```
 
 **Features**:
@@ -40,8 +40,8 @@ go build
 Original player implementation with basic tracking.
 
 ```bash
-./learnRingbuffer play music.mp3
-./learnRingbuffer play -device 0 -v music.flac
+./musictools play music.mp3
+./musictools play -device 0 -v music.flac
 ```
 
 See [pkg/audioplayer/README.md](pkg/audioplayer/README.md) for details.
@@ -54,13 +54,13 @@ Convert audio files to different sample rates and formats.
 
 ```bash
 # Transform MP3 to 48kHz WAV
-./learnRingbuffer transform input.mp3 --new-samplerate 48000 --out output.wav
+./musictools transform input.mp3 --new-samplerate 48000 --out output.wav
 
 # Transform FLAC to 44.1kHz mono WAV
-./learnRingbuffer transform input.flac --new-samplerate 44100 --mono --out output.wav
+./musictools transform input.flac --new-samplerate 44100 --mono --out output.wav
 
 # Transform with default settings (48kHz)
-./learnRingbuffer transform input.wav
+./musictools transform input.wav
 ```
 
 **Features**:
@@ -76,7 +76,7 @@ Convert audio files to different sample rates and formats.
 ### Package Structure
 
 ```
-learnRingbuffer/
+musictools/
 ├── cmd/                           # CLI commands (thin layer, pure glue code)
 │   ├── root.go                    # Root command setup
 │   ├── fileplayer.go              # Playlist command (221 lines)
@@ -111,7 +111,7 @@ learnRingbuffer/
 3. **Decoder Factory**: Single source of truth in `pkg/decoders/factory.go`
 4. **FilePlayer Extraction**: Moved 393 lines from cmd/ to `internal/fileplayer` (-64% in cmd/)
 
-See [MEMORY.md](./.claude/projects/-Users-val-gridnev-Projects-hack-day-myProjects-learnAudio-learnRingbuffer/memory/MEMORY.md) for detailed history.
+See [MEMORY.md](./.claude/projects/-Users-val-gridnev-Projects-hack-day-myProjects-learnAudio-musictools/memory/MEMORY.md) for detailed history.
 
 ---
 
@@ -130,20 +130,20 @@ sudo apt-get install portaudio19-dev libflac-dev libmpg123-dev
 go build
 
 # Run
-./learnRingbuffer playlist music.mp3
+./musictools playlist music.mp3
 ```
 
 ### Usage Examples
 
 ```bash
 # Play single file
-./learnRingbuffer playlist song.mp3
+./musictools playlist song.mp3
 
 # Play multiple files
-./learnRingbuffer playlist track1.flac track2.mp3 track3.wav
+./musictools playlist track1.flac track2.mp3 track3.wav
 
 # Play with custom configuration
-./learnRingbuffer playlist \
+./musictools playlist \
   --device 0 \
   --capacity 512 \
   --paframes 1024 \
@@ -152,15 +152,15 @@ go build
   music/*.flac
 
 # Transform audio
-./learnRingbuffer transform input.mp3 \
+./musictools transform input.mp3 \
   --new-samplerate 48000 \
   --mono \
   --out output.wav
 
 # Help
-./learnRingbuffer --help
-./learnRingbuffer playlist --help
-./learnRingbuffer transform --help
+./musictools --help
+./musictools playlist --help
+./musictools transform --help
 ```
 
 ---
@@ -186,7 +186,7 @@ go build
 ### Basic Example
 
 ```go
-import "learnRingbuffer/pkg/ringbuffer"
+import "musictools/pkg/ringbuffer"
 
 // Create a 1KB ring buffer (size will be rounded to power of 2)
 rb := ringbuffer.New(1024)
@@ -334,7 +334,7 @@ This project demonstrates several advanced Go patterns:
 
 - [THREAD_SAFETY_ANALYSIS.md](THREAD_SAFETY_ANALYSIS.md) - Comprehensive thread safety analysis
 - [CLAUDE.md](CLAUDE.md) - Guidelines for AI sessions (architecture, patterns, DO/DON'T examples)
-- [MEMORY.md](./.claude/projects/-Users-val-gridnev-Projects-hack-day-myProjects-learnAudio-learnRingbuffer/memory/MEMORY.md) - Project memory and key decisions
+- [MEMORY.md](./.claude/projects/-Users-val-gridnev-Projects-hack-day-myProjects-learnAudio-musictools/memory/MEMORY.md) - Project memory and key decisions
 
 ---
 

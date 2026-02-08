@@ -32,20 +32,9 @@ func (d *Decoder) DecodeSamples(samples int, audio []byte) (int, error) {
 		return 0, fmt.Errorf("decoder not initialized")
 	}
 
-	// mpg123 Read returns bytes read
-	bytesRead, err := d.decoder.Read(audio)
-	if err != nil {
-		return 0, err
-	}
-
-	// Convert bytes to samples
-	bytesPerSample := d.encoding / 8 // encoding is in bits
-	if bytesPerSample == 0 {
-		return 0, fmt.Errorf("invalid encoding: %d", d.encoding)
-	}
-
-	samplesRead := bytesRead / (d.channels * bytesPerSample)
-	return samplesRead, nil
+	// Use mpg123's DecodeSamples which correctly handles all audio formats
+	// (mono/stereo, 16/24/32-bit)
+	return d.decoder.DecodeSamples(samples, audio)
 }
 
 // Open opens and initializes an MP3 file for decoding

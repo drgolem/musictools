@@ -8,8 +8,8 @@ import (
 	"syscall"
 	"time"
 
-	"learnRingbuffer/pkg/audioplayer"
-	"learnRingbuffer/pkg/types"
+	"musictools/pkg/audioplayer"
+	"musictools/pkg/types"
 
 	"github.com/drgolem/go-portaudio/portaudio"
 	"github.com/spf13/cobra"
@@ -36,19 +36,19 @@ Supports MP3, FLAC, and WAV formats with real-time status reporting.
 
 Examples:
   # Play an MP3 file
-  learnRingbuffer play music.mp3
+  musictools play music.mp3
 
   # Play a FLAC file with specific device
-  learnRingbuffer play -device 0 music.flac
+  musictools play -device 0 music.flac
 
   # Play a WAV file
-  learnRingbuffer play audio.wav
+  musictools play audio.wav
 
   # Use larger buffer for better stability
-  learnRingbuffer play -buffer 524288 music.mp3
+  musictools play -buffer 524288 music.mp3
 
   # Lower latency with smaller buffer
-  learnRingbuffer play -buffer 65536 -frames 256 music.flac
+  musictools play -buffer 65536 -frames 256 music.flac
 
 Buffer Recommendations:
   Low latency:    -buffer 65536  -frames 256   (lower CPU usage tolerance)
