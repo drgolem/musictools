@@ -8,7 +8,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"musictools/pkg/decoders/flac"
+	"github.com/drgolem/musictools/pkg/decoders/flac"
 )
 
 // AudioMetadata contains format information for the decoded audio

@@ -5,10 +5,10 @@ import (
 	"path/filepath"
 	"strings"
 
-	"musictools/pkg/decoders/flac"
-	"musictools/pkg/decoders/mp3"
-	"musictools/pkg/decoders/wav"
-	"musictools/pkg/types"
+	"github.com/drgolem/musictools/pkg/decoders/flac"
+	"github.com/drgolem/musictools/pkg/decoders/mp3"
+	"github.com/drgolem/musictools/pkg/decoders/wav"
+	"github.com/drgolem/musictools/pkg/types"
 )
 
 // NewDecoder creates and opens the appropriate decoder based on file extension.

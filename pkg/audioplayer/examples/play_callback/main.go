@@ -10,11 +10,11 @@ import (
 	"sync/atomic"
 	"syscall"
 
-	"musictools/pkg/decoders/flac"
-	"musictools/pkg/decoders/mp3"
-	"musictools/pkg/decoders/wav"
-	"musictools/pkg/ringbuffer"
-	"musictools/pkg/types"
+	"github.com/drgolem/musictools/pkg/decoders/flac"
+	"github.com/drgolem/musictools/pkg/decoders/mp3"
+	"github.com/drgolem/musictools/pkg/decoders/wav"
+	"github.com/drgolem/ringbuffer"
+	"github.com/drgolem/musictools/pkg/types"
 
 	"github.com/drgolem/go-portaudio/portaudio"
 )

@@ -9,7 +9,7 @@ import (
 	"syscall"
 	"time"
 
-	"musictools/pkg/audioplayer"
+	"github.com/drgolem/musictools/pkg/audioplayer"
 
 	"github.com/drgolem/go-portaudio/portaudio"
 )

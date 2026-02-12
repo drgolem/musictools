@@ -3,13 +3,13 @@ package flac
 import (
 	"fmt"
 
-	"github.com/drgolem/go-flac/pkg/flac"
+	goflac "github.com/drgolem/go-flac/flac"
 )
 
 // Decoder wraps the go-flac decoder to provide FLAC decoding capabilities.
 // Implements types.AudioDecoder interface.
 type Decoder struct {
-	decoder  *flac.FlacDecoder
+	decoder  *goflac.FlacDecoder
 	rate     int
 	channels int
 	bps      int // bits per sample
@@ -41,7 +41,7 @@ func (d *Decoder) DecodeSamples(samples int, audio []byte) (int, error) {
 func (d *Decoder) Open(fileName string) error {
 	// Create new decoder with 16-bit output by default
 	// This can be adjusted to 24 or 32 if needed
-	decoder, err := flac.NewFlacFrameDecoder(16)
+	decoder, err := goflac.NewFlacFrameDecoder(16)
 	if err != nil {
 		return fmt.Errorf("failed to create decoder: %w", err)
 	}

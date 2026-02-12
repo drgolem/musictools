@@ -8,7 +8,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"musictools/pkg/decoders/mp3"
+	"github.com/drgolem/musictools/pkg/decoders/mp3"
 )
 
 // AudioMetadata contains format information for the decoded audio

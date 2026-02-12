@@ -8,13 +8,13 @@ import (
 	"sync/atomic"
 	"time"
 
-	"musictools/pkg/decoders/flac"
-	"musictools/pkg/decoders/mp3"
-	"musictools/pkg/decoders/wav"
-	"musictools/pkg/ringbuffer"
-	"musictools/pkg/types"
+	"github.com/drgolem/musictools/pkg/decoders/flac"
+	"github.com/drgolem/musictools/pkg/decoders/mp3"
+	"github.com/drgolem/musictools/pkg/decoders/wav"
+	"github.com/drgolem/musictools/pkg/types"
 
 	"github.com/drgolem/go-portaudio/portaudio"
+	"github.com/drgolem/ringbuffer"
 )
 
 // Player manages audio playback using producer/consumer pattern with ringbuffer

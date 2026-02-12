@@ -5,8 +5,8 @@ import (
 	"sync"
 	"time"
 
-	"musictools/pkg/audioframe"
-	"musictools/pkg/audioframeringbuffer"
+	"github.com/drgolem/musictools/pkg/audioframe"
+	"github.com/drgolem/musictools/pkg/audioframeringbuffer"
 )
 
 func main() {

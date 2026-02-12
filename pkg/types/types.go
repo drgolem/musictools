@@ -1,8 +1,9 @@
 package types
 
 import (
-	"errors"
 	"time"
+
+	"github.com/drgolem/ringbuffer"
 )
 
 // AudioDecoder is the common interface for all audio decoders (MP3, FLAC, WAV).
@@ -48,12 +49,12 @@ type PlaybackMonitor interface {
 	GetPlaybackStatus() PlaybackStatus
 }
 
-// Common ringbuffer errors used by both byte-based and frame-based ringbuffers.
-// These errors enable consistent error handling and comparison using errors.Is().
+// Re-export common ringbuffer errors from github.com/drgolem/ringbuffer
+// for backwards compatibility with existing code.
 var (
 	// ErrInsufficientSpace indicates the ringbuffer doesn't have enough space for the write operation
-	ErrInsufficientSpace = errors.New("insufficient space in ringbuffer")
+	ErrInsufficientSpace = ringbuffer.ErrInsufficientSpace
 
 	// ErrInsufficientData indicates the ringbuffer doesn't have enough data for the read operation
-	ErrInsufficientData = errors.New("insufficient data in ringbuffer")
+	ErrInsufficientData = ringbuffer.ErrInsufficientData
 )

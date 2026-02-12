@@ -8,8 +8,8 @@ import (
 	"os"
 	"strings"
 
-	"musictools/pkg/decoders"
-	"musictools/pkg/types"
+	"github.com/drgolem/musictools/pkg/decoders"
+	"github.com/drgolem/musictools/pkg/types"
 
 	"github.com/spf13/cobra"
 	wav "github.com/youpy/go-wav"

@@ -8,10 +8,10 @@ import (
 	"sync/atomic"
 	"time"
 
-	"musictools/pkg/audioframe"
-	"musictools/pkg/audioframeringbuffer"
-	"musictools/pkg/decoders"
-	"musictools/pkg/types"
+	"github.com/drgolem/musictools/pkg/audioframe"
+	"github.com/drgolem/musictools/pkg/audioframeringbuffer"
+	"github.com/drgolem/musictools/pkg/decoders"
+	"github.com/drgolem/musictools/pkg/types"
 
 	"github.com/drgolem/go-portaudio/portaudio"
 )

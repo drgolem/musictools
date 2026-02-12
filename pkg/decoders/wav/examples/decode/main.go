@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	"musictools/pkg/decoders/wav"
+	"github.com/drgolem/musictools/pkg/decoders/wav"
 )
 
 func main() {

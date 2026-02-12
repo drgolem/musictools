@@ -8,8 +8,8 @@ import (
 	"syscall"
 	"time"
 
-	"musictools/pkg/audioplayer"
-	"musictools/pkg/types"
+	"github.com/drgolem/musictools/pkg/audioplayer"
+	"github.com/drgolem/musictools/pkg/types"
 
 	"github.com/drgolem/go-portaudio/portaudio"
 	"github.com/spf13/cobra"

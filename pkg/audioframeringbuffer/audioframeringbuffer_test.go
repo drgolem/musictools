@@ -4,7 +4,7 @@ import (
 	"sync"
 	"testing"
 
-	"musictools/pkg/audioframe"
+	"github.com/drgolem/musictools/pkg/audioframe"
 )
 
 func TestNewRoundsToPowerOf2(t *testing.T) {
