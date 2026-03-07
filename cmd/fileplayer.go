@@ -5,11 +5,13 @@ import (
 	"log/slog"
 	"os"
 	"os/signal"
+	"path/filepath"
 	"syscall"
 	"time"
 
-	"github.com/drgolem/musictools/internal/fileplayer"
-	"github.com/drgolem/musictools/pkg/types"
+	"github.com/drgolem/audiokit/pkg/audioplayer"
+	"github.com/drgolem/audiokit/pkg/types"
+	"github.com/drgolem/musictools/internal/decoders"
 
 	"github.com/drgolem/go-portaudio/portaudio"
 	"github.com/spf13/cobra"
@@ -92,7 +94,7 @@ func runPlaylist(cmd *cobra.Command, args []string) {
 		"samples_per_audioframe", playlistSamplesPerFrame,
 		"file_count", len(files))
 
-	player := fileplayer.NewFilePlayer(playlistDeviceIdx, playlistBufferCapacity, playlistPAFrames, playlistSamplesPerFrame)
+	player := audioplayer.New(playlistDeviceIdx, playlistBufferCapacity, playlistPAFrames, playlistSamplesPerFrame)
 
 	sigChan := make(chan os.Signal, 1)
 	signal.Notify(sigChan, os.Interrupt, syscall.SIGTERM)
@@ -106,12 +108,15 @@ func runPlaylist(cmd *cobra.Command, args []string) {
 
 		slog.Info("Playing file", "index", i+1, "total", len(files), "file", fileName)
 
-		if err := player.OpenFile(fileName); err != nil {
+		dec, err := decoders.NewDecoder(fileName)
+		if err != nil {
 			slog.Error("Failed to open file", "file", fileName, "error", err)
 			continue
 		}
 
-		if err := player.PlayFile(); err != nil {
+		player.SetDecoder(dec, filepath.Base(fileName))
+
+		if err := player.Play(); err != nil {
 			slog.Error("Failed to start playback", "file", fileName, "error", err)
 			continue
 		}
@@ -151,7 +156,7 @@ func runPlaylist(cmd *cobra.Command, args []string) {
 	slog.Info("Exiting")
 }
 
-// monitorPlayback monitors and logs playback status every 2 seconds for any PlaybackMonitor
+// monitorPlayback monitors and logs playback status every 2 seconds
 func monitorPlayback(monitor types.PlaybackMonitor, done chan struct{}) {
 	ticker := time.NewTicker(2 * time.Second)
 	defer ticker.Stop()
@@ -161,13 +166,9 @@ func monitorPlayback(monitor types.PlaybackMonitor, done chan struct{}) {
 		case <-ticker.C:
 			status := monitor.GetPlaybackStatus()
 
-			// Calculate played audio time from samples (actually sent to speakers)
 			playedTimeSeconds := float64(status.PlayedSamples) / float64(status.SampleRate)
-
-			// Calculate buffered audio time (decoded but not yet played)
 			bufferedTimeSeconds := float64(status.BufferedSamples) / float64(status.SampleRate)
 
-			// Format elapsed time as hh:mm:ss.msec
 			totalMilliseconds := status.ElapsedTime.Milliseconds()
 			hours := totalMilliseconds / 3600000
 			minutes := (totalMilliseconds % 3600000) / 60000
@@ -175,7 +176,6 @@ func monitorPlayback(monitor types.PlaybackMonitor, done chan struct{}) {
 			milliseconds := totalMilliseconds % 1000
 			elapsedStr := fmt.Sprintf("%02d:%02d:%02d.%03d", hours, minutes, seconds, milliseconds)
 
-			// Format played time as hh:mm:ss.msec (same format as elapsed)
 			playedMilliseconds := int64(playedTimeSeconds * 1000)
 			playedHours := playedMilliseconds / 3600000
 			playedMinutes := (playedMilliseconds % 3600000) / 60000

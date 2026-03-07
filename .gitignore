@@ -19,8 +19,10 @@ go.work
 go.work.sum
 
 # Build artifacts
+bin/
 /musictools
 /out_transformed.wav
+/out_cut.wav
 
 # env file
 .env

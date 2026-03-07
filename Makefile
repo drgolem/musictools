@@ -1,116 +1,75 @@
-# musictools Makefile
-# Lock-free audio ringbuffer library with real-time playback
-
-.PHONY: help build install test test-race vet fmt clean all
-
-# Binary name
-BINARY_NAME=musictools
-# Module name from go.mod
-MODULE=github.com/drgolem/musictools
-# Build output directory
-BUILD_DIR=bin
-
-# Go commands
-GOCMD=go
-GOBUILD=$(GOCMD) build
-GOTEST=$(GOCMD) test
-GOVET=$(GOCMD) vet
-GOFMT=gofmt
-GOMOD=$(GOCMD) mod
-GOINSTALL=$(GOCMD) install
-
-# Build flags
-LDFLAGS=-ldflags "-s -w"
-BUILD_FLAGS=-v
+.PHONY: all build build-all test test-verbose test-race test-coverage vet lint fmt clean help
 
 # Default target
-all: vet test build
-
-help:
-	@echo "musictools - Lock-free SPSC ringbuffer audio player"
-	@echo ""
-	@echo "Available targets:"
-	@echo "  make build       - Build the musictools binary"
-	@echo "  make install     - Install musictools to \$$GOPATH/bin"
-	@echo "  make test        - Run all tests"
-	@echo "  make test-race   - Run tests with race detector"
-	@echo "  make vet         - Run go vet"
-	@echo "  make fmt         - Format all Go code"
-	@echo "  make clean       - Remove built binaries and test artifacts"
-	@echo "  make deps        - Download and verify dependencies"
-	@echo "  make all         - Run vet, test, and build"
-	@echo ""
-	@echo "Build artifacts:"
-	@echo "  ./$(BINARY_NAME) - Main binary"
+all: build test
 
 # Build the main binary
 build:
-	@echo "Building $(BINARY_NAME)..."
-	$(GOBUILD) $(BUILD_FLAGS) $(LDFLAGS) -o $(BINARY_NAME) .
-	@echo "Build complete: ./$(BINARY_NAME)"
+	@echo "Building musictools..."
+	@mkdir -p bin
+	go build -o bin/musictools
 
-# Install to GOPATH/bin
-install:
-	@echo "Installing $(BINARY_NAME) to \$$GOPATH/bin..."
-	$(GOINSTALL) $(LDFLAGS) .
-	@echo "Installed: $(BINARY_NAME)"
+# Build all packages
+build-all:
+	@echo "Building all packages..."
+	go build ./...
 
-# Run all tests
+# Run unit tests
 test:
 	@echo "Running tests..."
-	$(GOTEST) -v ./...
+	go test ./...
 
-# Run tests with race detector (CRITICAL for thread safety)
+# Run tests with verbose output
+test-verbose:
+	@echo "Running tests with verbose output..."
+	go test -v ./...
+
+# Run tests with race detector
 test-race:
 	@echo "Running tests with race detector..."
-	$(GOTEST) -race -v ./...
+	go test -race ./...
 
-# Run go vet (static analysis)
+# Run tests with coverage
+test-coverage:
+	@echo "Running tests with coverage..."
+	go test -cover ./...
+	go test -coverprofile=coverage.out ./...
+	go tool cover -html=coverage.out -o coverage.html
+	@echo "Coverage report generated: coverage.html"
+
+# Run go vet
 vet:
 	@echo "Running go vet..."
-	$(GOVET) ./...
+	go vet ./...
 
-# Format all Go code
+# Run golangci-lint
+lint:
+	@echo "Running golangci-lint..."
+	golangci-lint run ./...
+
+# Run gofumpt (stricter than gofmt)
 fmt:
-	@echo "Formatting Go code..."
-	$(GOFMT) -w .
-	@echo "Formatting complete"
-
-# Download and verify dependencies
-deps:
-	@echo "Downloading dependencies..."
-	$(GOMOD) download
-	@echo "Verifying dependencies..."
-	$(GOMOD) verify
-	@echo "Tidying dependencies..."
-	$(GOMOD) tidy
+	@echo "Formatting code..."
+	gofumpt -w .
 
 # Clean build artifacts
 clean:
-	@echo "Cleaning build artifacts..."
-	@rm -f $(BINARY_NAME)
-	@rm -rf $(BUILD_DIR)
-	@rm -f *.test
-	@rm -f *.out
-	@rm -f *.prof
-	@echo "Clean complete"
+	@echo "Cleaning..."
+	rm -rf bin/
+	rm -f coverage.out coverage.html
 
-# Development workflow: format, vet, test with race detector, build
-dev: fmt vet test-race build
-	@echo "Development build complete!"
-
-# Quick build without tests (use sparingly)
-quick:
-	@echo "Quick build (no tests)..."
-	$(GOBUILD) $(LDFLAGS) -o $(BINARY_NAME) .
-
-# Production build health check
-health:
-	@echo "Running health check..."
-	@echo "1. Building..."
-	@$(GOBUILD) ./... > /dev/null 2>&1 && echo "   ✓ Build successful" || echo "   ✗ Build failed"
-	@echo "2. Running go vet..."
-	@$(GOVET) ./... > /dev/null 2>&1 && echo "   ✓ Vet passed" || echo "   ✗ Vet failed"
-	@echo "3. Running tests with race detector..."
-	@$(GOTEST) -race ./... > /dev/null 2>&1 && echo "   ✓ Tests passed (no races)" || echo "   ✗ Tests failed or races detected"
-	@echo "Health check complete"
+# Show help
+help:
+	@echo "Available targets:"
+	@echo "  make build          - Build main binary to bin/musictools"
+	@echo "  make build-all      - Build all packages"
+	@echo "  make test           - Run unit tests"
+	@echo "  make test-verbose   - Run tests with verbose output"
+	@echo "  make test-race      - Run tests with race detector"
+	@echo "  make test-coverage  - Run tests with coverage report"
+	@echo "  make vet            - Run go vet"
+	@echo "  make lint           - Run golangci-lint"
+	@echo "  make fmt            - Format code with gofumpt"
+	@echo "  make clean          - Remove build artifacts"
+	@echo "  make all            - Build and test (default)"
+	@echo "  make help           - Show this help message"

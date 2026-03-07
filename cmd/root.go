@@ -9,22 +9,16 @@ import (
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Use:   "musictools",
-	Short: "Lock-free SPSC ringbuffer audio player",
-	Long: `musictools - A production-ready audio player demonstrating lock-free
-SPSC (Single-Producer Single-Consumer) ringbuffer implementation for real-time
-audio streaming.
+	Short: "Audio player and converter",
+	Long: `musictools - Command-line audio player and converter.
 
-Features:
-  - Lock-free SPSC ringbuffer with zero-copy audio processing
-  - Producer/consumer architecture for real-time streaming
-  - Support for MP3, FLAC, and WAV audio formats
-  - Configurable buffer sizes and audio devices
-  - Thread-safe implementation with comprehensive safety analysis
-  - Sample rate transformation and format conversion
+Supports MP3, FLAC, WAV, OGG Vorbis, and Opus formats.
 
 Commands:
-  - play: Play audio files with real-time monitoring
-  - transform: Convert audio files to different sample rates and WAV format`,
+  play       Play a single audio file
+  playlist   Play multiple files sequentially
+  transform  Resample and convert to WAV
+  samplecut  Extract a time segment from an audio file`,
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.

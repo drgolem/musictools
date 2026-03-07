@@ -8,8 +8,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/drgolem/musictools/pkg/decoders"
-	"github.com/drgolem/musictools/pkg/types"
+	"github.com/drgolem/audiokit/pkg/decoder"
+	"github.com/drgolem/musictools/internal/decoders"
 
 	"github.com/spf13/cobra"
 	wav "github.com/youpy/go-wav"
@@ -85,14 +85,14 @@ func runTransform(cmd *cobra.Command, args []string) {
 		os.Exit(1)
 	}
 
-	decoder, err := decoders.NewDecoder(inFileName)
+	dec, err := decoders.NewDecoder(inFileName)
 	if err != nil {
 		slog.Error("Failed to create decoder", "error", err)
 		os.Exit(1)
 	}
-	defer decoder.Close()
+	defer dec.Close()
 
-	inSampleRate, channels, bitsPerSample := decoder.GetFormat()
+	inSampleRate, channels, bitsPerSample := dec.GetFormat()
 
 	slog.Info("Audio transformation starting",
 		"input_file", inFileName,
@@ -104,7 +104,7 @@ func runTransform(cmd *cobra.Command, args []string) {
 		"output_file", outFileName)
 
 	slog.Info("Decoding audio data")
-	audioData, totalSamples, err := decodeAllAudio(decoder, channels, bitsPerSample)
+	audioData, totalSamples, err := decodeAllAudio(dec, channels, bitsPerSample)
 	if err != nil {
 		slog.Error("Failed to decode audio", "error", err)
 		os.Exit(1)
@@ -154,7 +154,7 @@ func runTransform(cmd *cobra.Command, args []string) {
 }
 
 // decodeAllAudio reads all audio data from the decoder into memory
-func decodeAllAudio(decoder types.AudioDecoder, channels, bitsPerSample int) ([]byte, int, error) {
+func decodeAllAudio(dec decoder.AudioDecoder, channels, bitsPerSample int) ([]byte, int, error) {
 	const bufferSamples = 4096
 	bytesPerSample := bitsPerSample / 8
 	bufferSize := bufferSamples * channels * bytesPerSample
@@ -164,7 +164,7 @@ func decodeAllAudio(decoder types.AudioDecoder, channels, bitsPerSample int) ([]
 	totalSamples := 0
 
 	for {
-		samplesRead, err := decoder.DecodeSamples(bufferSamples, buffer)
+		samplesRead, err := dec.DecodeSamples(bufferSamples, buffer)
 		if samplesRead > 0 {
 			bytesRead := samplesRead * channels * bytesPerSample
 			audioData = append(audioData, buffer[:bytesRead]...)
