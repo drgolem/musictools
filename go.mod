@@ -3,7 +3,7 @@ module github.com/drgolem/musictools
 go 1.26
 
 require (
-	github.com/drgolem/audiokit v0.0.0-20260309030626-4be89231950f
+	github.com/drgolem/audiokit v0.0.0-20260309054244-8e6b8b01844b
 	github.com/drgolem/go-portaudio v0.0.0-20260309010403-03a2d827824b
 	github.com/spf13/cobra v1.10.2
 	github.com/youpy/go-wav v0.3.2
@@ -11,8 +11,8 @@ require (
 )
 
 require (
-	github.com/drgolem/go-flac v0.0.0-20260309030445-fb2fc70e6c20 // indirect
-	github.com/drgolem/go-opus v0.0.0-20221022213453-763cb73ec5b5 // indirect
+	github.com/drgolem/go-flac v0.0.0-20260309053727-b159fefb5931 // indirect
+	github.com/drgolem/go-opus v0.0.0-20260309031855-220c97a6ac4a // indirect
 	github.com/drgolem/ringbuffer v0.0.0-20260212040143-40ad42d6ca09 // indirect
 	github.com/imcarsen/go-mp3 v0.3.7 // indirect
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
