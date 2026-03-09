@@ -1,10 +1,10 @@
 module github.com/drgolem/musictools
 
-go 1.25.2
+go 1.26
 
 require (
-	github.com/drgolem/audiokit v0.0.0-20260307091353-cc150cb83e38
-	github.com/drgolem/go-portaudio v0.0.0-20260217063547-5c70ebc530b8
+	github.com/drgolem/audiokit v0.0.0-20260309010527-24d2e57ab842
+	github.com/drgolem/go-portaudio v0.0.0-20260309010403-03a2d827824b
 	github.com/spf13/cobra v1.10.2
 	github.com/youpy/go-wav v0.3.2
 	github.com/zaf/resample v1.5.0
