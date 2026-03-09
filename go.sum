@@ -2,10 +2,10 @@ github.com/cpuguy83/go-md2man/v2 v2.0.6/go.mod h1:oOW0eioCTA6cOiMLiUPZOpcVxMig6N
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
-github.com/drgolem/audiokit v0.0.0-20260309010527-24d2e57ab842 h1:WcTwXbDvNGz87dRqUBnNTeuUISk9oyrYcQnmMJW3TW0=
-github.com/drgolem/audiokit v0.0.0-20260309010527-24d2e57ab842/go.mod h1:QrUKYFDpPATDIip15nOhVGoflAnL66f7FenGLVLSl4g=
-github.com/drgolem/go-flac v0.0.0-20260227233836-5288cd6451bf h1:9KMDPpjmaPAHHaOO7gkbltD/6zOku4mig5hZbs99Q0s=
-github.com/drgolem/go-flac v0.0.0-20260227233836-5288cd6451bf/go.mod h1:JZwqbZkVeZpJec6D5+QOXQutzy003L8Z6ZihvJqu+eg=
+github.com/drgolem/audiokit v0.0.0-20260309030626-4be89231950f h1:/RvXME8QOX/G35MLUUpUvY6Gv5H5c1NtnofVDs85mDw=
+github.com/drgolem/audiokit v0.0.0-20260309030626-4be89231950f/go.mod h1:Ck3hCUhltbWTrFkoj5U7QGsklSo3mZDuWuKE1O3eyQ0=
+github.com/drgolem/go-flac v0.0.0-20260309030445-fb2fc70e6c20 h1:rmH7jN/RMZNvb/ppnlTCzZstXA9rzNlofZNJSZagHZI=
+github.com/drgolem/go-flac v0.0.0-20260309030445-fb2fc70e6c20/go.mod h1:JZwqbZkVeZpJec6D5+QOXQutzy003L8Z6ZihvJqu+eg=
 github.com/drgolem/go-opus v0.0.0-20221022213453-763cb73ec5b5 h1:qTjDf1kbmKs3GLQ1TV1aWt7huHmACNpYEql/WsxpKLk=
 github.com/drgolem/go-opus v0.0.0-20221022213453-763cb73ec5b5/go.mod h1:Na1IlcmgrbIxFPwaPyBUUzJ2RoViQpV8I90poXPskuI=
 github.com/drgolem/go-portaudio v0.0.0-20260309010403-03a2d827824b h1:3yEe8frYlCN28dFnF9g5Od/5fHFNRRSrV6lQb0WKNxg=
